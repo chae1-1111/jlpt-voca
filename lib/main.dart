@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voca/screens/mainScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,15 +23,11 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.black,
           elevation: 0,
         ),
+        primarySwatch: Colors.blue,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "JLPT 단어장",
-          ),
-        ),
-        body: Container(),
-      ),
+      home: const MainScreen(),
     );
   }
 }
