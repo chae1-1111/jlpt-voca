@@ -204,7 +204,7 @@ class LevelItem extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(15),
                   )
-                : null,
+                : const BoxDecoration(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment:
