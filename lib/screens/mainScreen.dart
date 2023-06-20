@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voca/screens/levelDetail.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({
@@ -175,75 +176,90 @@ class LevelItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: isGrid ? 150 : null,
-          height: isGrid ? 150 : null,
-          padding: const EdgeInsets.symmetric(
-            vertical: 20,
-            horizontal: 10,
-          ),
-          decoration: isGrid
-              ? BoxDecoration(
-                  border: Border.all(
-                    width: 1.5,
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                )
-              : null,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment:
-                isGrid ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  fontSize: isGrid ? 60 : 40,
-                  fontWeight: FontWeight.w500,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LevelDetail(
+                  name: name,
+                  total: total,
+                  completed: completed,
                 ),
               ),
-              SizedBox(
-                height: isGrid ? 0 : 10,
-              ),
-              Row(
-                mainAxisAlignment:
-                    isGrid ? MainAxisAlignment.center : MainAxisAlignment.start,
-                children: [
-                  Container(
-                    width: isGrid ? 80 : 300,
-                    height: 14,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(7),
+            );
+          },
+          child: Container(
+            width: isGrid ? 150 : null,
+            height: isGrid ? 150 : null,
+            padding: const EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 10,
+            ),
+            decoration: isGrid
+                ? BoxDecoration(
+                    border: Border.all(
+                      width: 1.5,
+                      color: Colors.black,
                     ),
-                    child: Row(
-                      children: [
-                        Flexible(
-                          flex: completed,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.yellow,
-                              borderRadius: BorderRadius.circular(7),
+                    borderRadius: BorderRadius.circular(15),
+                  )
+                : null,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment:
+                  isGrid ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: isGrid ? 60 : 40,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(
+                  height: isGrid ? 0 : 10,
+                ),
+                Row(
+                  mainAxisAlignment: isGrid
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: isGrid ? 80 : 300,
+                      height: 14,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      child: Row(
+                        children: [
+                          Flexible(
+                            flex: completed,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.yellow,
+                                borderRadius: BorderRadius.circular(7),
+                              ),
                             ),
                           ),
-                        ),
-                        Flexible(
-                          flex: total - completed,
-                          child: const SizedBox(),
-                        ),
-                      ],
+                          Flexible(
+                            flex: total - completed,
+                            child: const SizedBox(),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text("${(completed / total * 100).floor()}%"),
-                ],
-              ),
-            ],
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text("${(completed / total * 100).floor()}%"),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         isGrid
