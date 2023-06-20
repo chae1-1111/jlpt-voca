@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voca/screens/todayLearn.dart';
 
 class LevelDetail extends StatelessWidget {
   final String name;
@@ -31,50 +32,59 @@ class LevelDetail extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    fullscreenDialog: true,
-                    builder: (context) => Scaffold(
-                      appBar: AppBar(),
-                    ),
-                  ),
-                );
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 13,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 2,
-                    color: Colors.black,
-                  ),
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      width: 25,
-                    ),
-                    Text(
-                      "오늘의 학습",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 25,
-                    ),
-                  ],
-                ),
+            const BtnTodayLearn()
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BtnTodayLearn extends StatelessWidget {
+  const BtnTodayLearn({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            fullscreenDialog: true,
+            builder: (context) => const TodayLearn(),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: 13,
+        ),
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 2,
+            color: Colors.black,
+          ),
+          borderRadius: BorderRadius.circular(40),
+        ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SizedBox(
+              width: 25,
+            ),
+            Text(
+              "오늘의 학습",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w600,
               ),
-            )
+            ),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 25,
+            ),
           ],
         ),
       ),

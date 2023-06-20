@@ -23,6 +23,28 @@ class MyApp extends StatelessWidget {
           foregroundColor: Colors.black,
           elevation: 0,
         ),
+        textTheme: const TextTheme(
+          headlineLarge: TextStyle(
+            fontSize: 100,
+            fontFamily: "NotoSansJP",
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+          ),
+          headlineMedium: TextStyle(
+            fontSize: 35,
+            fontFamily: "NotoSansJP",
+            color: Colors.black,
+          ),
+          labelMedium: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w500,
+            fontFamily: "NotoSansJP",
+          ),
+          labelSmall: TextStyle(
+            fontSize: 13,
+            fontFamily: "NotoSansJP",
+          ),
+        ),
         primarySwatch: Colors.blue,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
